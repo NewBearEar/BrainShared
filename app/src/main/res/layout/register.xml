@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/welcome_background"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="380dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/regiter_user"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="2"
+                android:background="@drawable/round_edittext"
+                android:gravity="center"
+                android:inputType="text"
+                android:maxLength="20"
+                android:hint="请输入用户名"
+                android:textColorHint="#ff545454"
+                android:textSize="16.0sp" />
+
+            <EditText
+                android:id="@+id/regiter_password"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/regiter_user"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20px"
+                android:layout_weight="2"
+                android:background="@drawable/round_edittext"
+                android:gravity="center"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:hint="请输入密码"
+                android:textColorHint="#ff545454"
+                android:textSize="16.0sp" />
+            <EditText
+                android:id="@+id/regiter_password_again"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/regiter_password"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20px"
+                android:layout_weight="2"
+                android:background="@drawable/round_edittext"
+                android:gravity="center"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:hint="请确认密码"
+                android:textColorHint="#ff545454"
+                android:textSize="16.0sp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <Button
+                android:id="@+id/regiter_regiter"
+                android:layout_width="152dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="10px"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/welcome_register" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
