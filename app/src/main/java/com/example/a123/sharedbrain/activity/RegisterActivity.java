@@ -1,4 +1,4 @@
-package com.example.a123.sharedbrain;
+package com.example.a123.sharedbrain.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.a123.sharedbrain.R;
 
 public class RegisterActivity extends Activity{
     public static RegisterActivity registerActivity;

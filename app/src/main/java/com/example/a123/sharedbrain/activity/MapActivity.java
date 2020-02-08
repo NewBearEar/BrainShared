@@ -1,10 +1,8 @@
-package com.example.a123.sharedbrain;
+package com.example.a123.sharedbrain.activity;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Build;
 import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
@@ -18,9 +16,8 @@ import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import java.util.Map;
+import com.example.a123.sharedbrain.R;
 
 public class MapActivity extends Activity {
     private MapView mMapView = null;

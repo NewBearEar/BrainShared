@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.a123.sharedbrain"
-        minSdkVersion 26
+        minSdkVersion 25
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -16,16 +16,44 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    //环信自3.6.0开始需要java8的支持
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+   }
 }
-
+repositories {
+    flatDir {
+        dirs 'libs' //就是你放aar的目录地址
+    }
+}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:support-media-compat:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation files('src/main/jniLibs/BaiduLBS_Android.jar')
     implementation files('src/main/jniLibs/component_common_sdk_1.1.0.jar')
     implementation files('src/main/jniLibs/IndoorscapeAlbumPlugin.jar')
+    // 奇特的RecyclerView
+    implementation 'com.marshalchen.ultimaterecyclerview:library:0.7.0'
+    // 支持下拉刷新和上拉加载的RecyclerView
+    implementation 'com.jcodecraeer:xrecyclerview:1.2.7'
+    // bottom tab
+    implementation 'com.github.armcha:SpaceNavigationView:1.4.1'
+    //炫酷的dialog
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar'
+    //优化发布/订阅事件
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    // 环信集成相关
+    implementation files('libs/hyphenatechat_3.6.3.jar')
+    configurations.all {
+        exclude group: 'com.android.support', module: 'support-v13'
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.a123.sharedbrain;
+package com.example.a123.sharedbrain.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.a123.sharedbrain.R;
 
 public class LoginActivity extends Activity implements View.OnClickListener {
     protected Button wBtnLogin;
@@ -50,9 +52,13 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
-    //跳转到主界面(这里跳转到MAP）
+    //跳转到主界面
     private void goMain(){
-        goBaiduMap();
+        Intent intent = new Intent();
+        intent.setClass(LoginActivity.this,MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+
     }
     private void connectToLogin(){
         String username = wEtxtUser.getText().toString();
@@ -64,6 +70,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
         boolean isLoginSuccess = Network.toLogin(username,password);
         if(isLoginSuccess)
+            Toast.makeText(LoginActivity.this,"登陆成功",Toast.LENGTH_SHORT).show();
             goMain();
 
     }

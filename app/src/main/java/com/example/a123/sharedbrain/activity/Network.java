@@ -1,6 +1,8 @@
-package com.example.a123.sharedbrain;
+package com.example.a123.sharedbrain.activity;
 
 import android.widget.Toast;
+
+import com.example.a123.sharedbrain.activity.LoginActivity;
 
 public class Network {
     //必写为静态static方法，直接调用类方法

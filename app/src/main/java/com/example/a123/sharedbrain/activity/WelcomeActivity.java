@@ -1,12 +1,13 @@
-package com.example.a123.sharedbrain;
+package com.example.a123.sharedbrain.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.a123.sharedbrain.R;
 
 public class WelcomeActivity extends Activity implements View.OnClickListener {
     @Override
