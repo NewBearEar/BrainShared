@@ -10,7 +10,9 @@ import android.widget.Toast;
 
 import com.example.a123.sharedbrain.R;
 
-public class RegisterActivity extends Activity{
+
+
+public class RegisterActivity extends Activity {
     public static RegisterActivity registerActivity;
     protected Button wBtnRegister;
     protected EditText wEtxtUser,wEtxtPassword,wEtxtPasswordAgain;

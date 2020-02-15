@@ -11,6 +11,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 
+
 import com.example.a123.sharedbrain.helper.event.NetStateEvent;
 import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
 import org.greenrobot.eventbus.EventBus;

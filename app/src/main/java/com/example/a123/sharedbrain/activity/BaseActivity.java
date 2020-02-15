@@ -1,14 +1,12 @@
 package com.example.a123.sharedbrain.activity;
 
+import android.app.Activity;
 import android.app.Dialog;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.os.PersistableBundle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.os.Build.VERSION;
-import android.os.Build.VERSION_CODES;
+
 public class BaseActivity extends AppCompatActivity {
     private Dialog mDialog;
     private static long mLastClickTime;
@@ -52,11 +50,9 @@ public class BaseActivity extends AppCompatActivity {
     }
     @Override
     public boolean isDestroyed() {
-        if (VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1){
-            return isDestroyed;
-        }else {
+
             return super.isDestroyed();
-        }
+
     }
     /**
      * 是否可以对UI进行操作，比如更新UI控件，显示/消失对话框等

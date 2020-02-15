@@ -7,10 +7,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activity.ReleaseActivity">
-    <!--<com.example.a123.sharedbrain.ui.view.TitleView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/release_title"/>-->
+    <com.example.a123.sharedbrain.view.TitleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/release_title"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -33,13 +33,13 @@
         <!--android:id="@+id/release_wavyLine"/>-->
 
     <ImageView
-        android:src="@mipmap/ic_launcher"
+        app:srcCompat="@mipmap/ic_launcher"
         android:visibility="gone"
         android:id="@+id/iv_video_screenshot"
         android:layout_width="200dp"
         android:layout_height="200dp"/>
 
-    <com.example.a123.sharedbrain.ui.view.RecyclerView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/release_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

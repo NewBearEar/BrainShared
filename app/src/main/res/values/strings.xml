@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">sharedBrain</string>
     <string name="register">注册</string>
+    <string name="Tester_account">测试者账号</string>
+    <string name="Test_Date">2020_02_11 11:13:17</string>
+    <string name="NoMore">没有更多内容</string>
+    <string name="Test_content">测试通知内容</string>
+    <string name="Test_praise">赞 34</string>
+    <string name="Separator">|</string>
+    <string name="Test_comment">评论 50</string>
 </resources>

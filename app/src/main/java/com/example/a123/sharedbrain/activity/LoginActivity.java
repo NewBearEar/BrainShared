@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.example.a123.sharedbrain.R;
 
+
+
 public class LoginActivity extends Activity implements View.OnClickListener {
     protected Button wBtnLogin;
     protected Button wBtnRegister;

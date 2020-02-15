@@ -1,6 +1,6 @@
 package com.example.a123.sharedbrain.activity;
 import com.example.a123.sharedbrain.R;
-import com.example.a123.sharedbrain.activity.BaseActivity;
+
 import android.os.Bundle;
 
 /**

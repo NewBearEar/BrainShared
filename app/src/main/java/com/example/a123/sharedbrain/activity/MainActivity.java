@@ -4,8 +4,10 @@ package com.example.a123.sharedbrain.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -33,7 +35,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.lang.ref.WeakReference;
-import java.util.List;
+
 
 /**
  * 主页面
@@ -128,9 +130,9 @@ public class MainActivity extends BaseActivity {
         if (mDialogBuilder == null){
             mDialogBuilder = NiftyDialogBuilder.getInstance(context);
             mDialogBuilder.withTitle("共享大脑")
-                    .withDialogColor(context.getColor(R.color.main_bg_color1))
+                    .withDialogColor(ContextCompat.getColor(context,R.color.main_bg_color1))
                     .withMessage("当前网络不可用，请检查网络连接!")
-                    .withIcon(context.getDrawable(R.mipmap.icon))
+                    .withIcon(ContextCompat.getDrawable(context, R.mipmap.icon))
                     .withButton1Text("我知道了")
                     .setButton1Click(new OnClickListener() {
                         @Override
@@ -333,7 +335,7 @@ public class MainActivity extends BaseActivity {
         if (count > 0) {
 //            unreadLabel.setText(String.valueOf(count));
 //            unreadLabel.setVisibility(View.VISIBLE);
-            mTab.showBadgeAtIndex(1, count, context.getColor(R.color.red));
+            mTab.showBadgeAtIndex(1, count, ContextCompat.getColor(context,R.color.red));
         } else {
 //            unreadLabel.setVisibility(View.INVISIBLE);
         }

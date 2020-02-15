@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import com.example.a123.sharedbrain.R;
 
+
+
 public class WelcomeActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

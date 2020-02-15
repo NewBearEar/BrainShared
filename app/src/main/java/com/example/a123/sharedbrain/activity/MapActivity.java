@@ -1,6 +1,5 @@
 package com.example.a123.sharedbrain.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -11,15 +10,17 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.example.a123.sharedbrain.R;
 
-public class MapActivity extends Activity {
+import android.support.v7.app.AppCompatActivity;
+
+public class MapActivity extends AppCompatActivity {
     private MapView mMapView = null;
     private BaiduMap mBaiduMap;
     private LocationClient mLocationClient;
