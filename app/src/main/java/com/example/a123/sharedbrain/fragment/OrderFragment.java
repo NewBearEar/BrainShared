@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.a123.sharedbrain.AppService;
 import com.example.a123.sharedbrain.DataModel.InfoModel;
@@ -42,6 +43,7 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView.LoadingListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -148,9 +150,9 @@ public class OrderFragment extends FragmentBase{
                 holder.setText(R.id.notice_item_like, "赞 " + item.praiseCount);
                 holder.setText(R.id.notice_item_comment, "评论 " + item.commentCount);
                 if (item.isIPraised){
-                    holder.setTextColor(R.id.notice_item_like, ContextCompat.getColor(getContext(),R.color.red));
+                    holder.setTextColor(R.id.notice_item_like, ContextCompat.getColor(Objects.requireNonNull(getContext()),R.color.red));
                 }else{
-                    holder.setTextColor(R.id.notice_item_like, ContextCompat.getColor(getContext(),R.color.gray));
+                    holder.setTextColor(R.id.notice_item_like, ContextCompat.getColor(Objects.requireNonNull(getContext()),R.color.gray));
                 }
 
 
@@ -203,7 +205,7 @@ public class OrderFragment extends FragmentBase{
                 holder.setOnRecyclerItemClickListener(R.id.notice_item_comment, new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        Toast.makeText(getActivity(), "你点击了评论，将进入详情页面！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "你点击了评论，将进入详情页面！", Toast.LENGTH_SHORT).show();
                         LookDetailActivity.start(getActivity(), mInfoModels.get(position),InfoType.ORDER);
                     }
                 });
@@ -234,7 +236,7 @@ public class OrderFragment extends FragmentBase{
             }
         });
 
-        footerView = LayoutInflater.from(getActivity()).inflate(R.layout.layout_not_more, (ViewGroup) getActivity().findViewById(android.R.id.content), false);
+        footerView = LayoutInflater.from(getActivity()).inflate(R.layout.layout_not_more, (ViewGroup) Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), false);
         mRecyclerView.addFootView(footerView);
 //        footerView.setVisibility(View.GONE);
 
@@ -250,10 +252,9 @@ public class OrderFragment extends FragmentBase{
     private void insertPraised(final InfoModel item,final CommonRecyclerHolder holder) {
 
         if (AppService.getInstance().getCurrentUser() == null) {
-            return;
+
         }
-//        AppService.getInstance().updatePraiseAsync(item.mainid, AppService.getInstance().getCurrentUser().username
-//                , new JsonCallback<LslResponse<PraiseModel>>() {});
+
     }
 
 

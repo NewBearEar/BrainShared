@@ -17,6 +17,7 @@
         android:scaleType="centerCrop"
         android:layout_marginTop="100dp"
         android:id="@+id/no_content"
-        app:srcCompat="@drawable/no_content"/>
+        app:srcCompat="@drawable/no_content"
+        android:contentDescription="@string/description"/>
 
 </FrameLayout>

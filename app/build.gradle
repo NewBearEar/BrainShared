@@ -69,10 +69,16 @@ dependencies {
     //implementation 'com.google.code.gson:gson:2.8.6'
     //图片加载库
     implementation 'com.squareup.picasso:picasso:2.71828'
-    //类似qq空间的展示图片的九宫格控件
+    //类似qq空间的展示图片的九宫格控件和图片选择
     implementation 'com.lzy.widget:ninegridview:0.2.0'
+    implementation 'com.lzy.widget:imagepicker:0.6.1'
     //圆形头像
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //图片压缩
+    implementation 'com.github.nanchen2251:CompressHelper:1.0.5'
+    // material dialog
+    implementation 'com.afollestad.material-dialogs:commons:0.9.1.0'
+    implementation 'com.afollestad.material-dialogs:core:0.9.1.0'
 
 }
 configurations.all {

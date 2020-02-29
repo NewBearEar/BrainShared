@@ -8,4 +8,10 @@
     <string name="Test_praise">赞 34</string>
     <string name="Separator">|</string>
     <string name="Test_comment">评论 50</string>
+    <string name="description">订单</string>
+    <string name="send_back_right">\ue628</string>
+    <string-array name="release">
+        <item>照片</item>
+        <item>小视频</item>
+    </string-array>
 </resources>

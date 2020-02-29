@@ -66,22 +66,22 @@ public class HomeFragment extends FragmentBase {
 
         mFab = (FloatingActionButton) view.findViewById(R.id.home_fab);
 
-        if (AppService.getInstance().getCurrentUser() != null){
-            int type = AppService.getInstance().getCurrentUser().type;
-            Log.e(TAG, "bindView: type:"+type );
-            if (type == Consts.USER_TYPE_STUDENT){//用户是学生
-                //mFab.setVisibility(View.VISIBLE);
-                mFab.show();
-            }
-        }
+//        if (AppService.getInstance().getCurrentUser() != null){
+//            int type = AppService.getInstance().getCurrentUser().type;
+//            Log.e(TAG, "bindView: type:"+type );
+//            if (type == Consts.USER_TYPE_STUDENT){//用户是学生
+//                //mFab.setVisibility(View.VISIBLE);
+//                mFab.show();
+//            }
+ //       }
 
         mFab.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (AppService.getInstance().getCurrentUser().type != Consts.USER_TYPE_Admin){
-                    UIUtil.showToast("非相关人员暂时不允许发公告！");
-                    return;
-                }
+//                if (AppService.getInstance().getCurrentUser().type != Consts.USER_TYPE_Admin){
+//                    UIUtil.showToast("非相关人员暂时不允许发公告！");
+//                    return;
+//                }
 
                 Intent intent = new Intent(getActivity(), ReleaseActivity.class);
                 intent.putExtra("name", mName);
@@ -115,18 +115,18 @@ public class HomeFragment extends FragmentBase {
                 int type = AppService.getInstance().getCurrentUser().type;
                 Log.e(TAG, "onPageSelected: type:"+ type);
                 //mFab.setVisibility(View.GONE);
-                mFab.hide();
-                if (position == 0 && type == Consts.USER_TYPE_Admin){
-                    mFab.show();
-                    mName = AddConfig.ORDER;
-                }
-                if (position == 1 && type == Consts.USER_TYPE_Admin){
-                    mFab.show();
-                    mName = AddConfig.BLOG;
-                }
-                if (position == 2){
-                    mFab.hide();
-                }
+//                mFab.hide();
+//                if (position == 0 && type == Consts.USER_TYPE_Admin){
+//                    mFab.show();
+//                    mName = AddConfig.ORDER;
+//                }
+//                if (position == 1 && type == Consts.USER_TYPE_Admin){
+//                    mFab.show();
+//                    mName = AddConfig.BLOG;
+//                }
+//                if (position == 2){
+//                    mFab.hide();
+//                }
             }
 
             @Override
