@@ -72,7 +72,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
         boolean isLoginSuccess = Network.toLogin(username,password);
         if(isLoginSuccess)
-            Toast.makeText(LoginActivity.this,"登陆成功",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(LoginActivity.this,"登陆成功",Toast.LENGTH_SHORT).show();
             goMain();
 
     }

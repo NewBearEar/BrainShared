@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RippleView">
+        <attr name="rv_alpha" format="integer"/>
+        <attr name="rv_framerate" format="integer"/>
+        <attr name="rv_rippleDuration" format="integer"/>
+        <attr name="rv_zoomDuration" format="integer"/>
+        <attr name="rv_color" format="color"/>
+        <attr name="rv_centered" format="boolean"/>
+        <attr name="rv_type" format="enum">
+            <enum name="simpleRipple" value="0"/>
+            <enum name="doubleRipple" value="1"/>
+            <enum name="rectangle" value="2"/>
+        </attr>
+        <attr name="rv_ripplePadding" format="dimension"/>
+        <attr name="rv_zoom" format="boolean"/>
+        <attr name="rv_zoomScale" format="float"/>
+
+        <attr name="rv_enable_ripple" format="boolean"/>
+
+    </declare-styleable>
+
+    <color name="rippelColor">#FFFFFF</color>
+    <color name="rippelColor_gray">#D3D3D3</color>
+    <color name="rippelColor_orange">#FF6600</color>
+    <color name="rippelColor_lightgreen">#ff91cd1a</color>
+</resources>

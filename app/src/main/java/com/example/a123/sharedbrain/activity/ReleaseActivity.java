@@ -133,16 +133,10 @@ public class ReleaseActivity extends BaseActivity
         mTitleBar.setRightButtonText(getResources().getString(R.string.send_back_right));
         mTitleBar.setRightButtonTextSize(25);
         mTitleBar.setFixRightButtonPadingTop();
-        mTitleBar.setRightButtonOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tryDecodeSmallImg2();
-            }
-        });
-
+        mTitleBar.setRightButtonOnClickListener(v -> tryDecodeSmallImg2());
 
         // 波浪线设置
-        mWavyLine = (WavyLineView) findViewById(R.id.release_wavyLine);
+        mWavyLine = findViewById(R.id.release_wavyLine);
         int initStrokeWidth = 1;
         int initAmplitude = 5;
         float initPeriod = (float) (2 * Math.PI / 60);
@@ -153,7 +147,7 @@ public class ReleaseActivity extends BaseActivity
 
         mEditText = (EditText) findViewById(R.id.release_edit);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.release_recycler);
+        RecyclerView recyclerView = findViewById(R.id.release_recycler);
         selImageList = new ArrayList<>();
         adapter = new ImagePickerAdapter(this, selImageList, maxImgCount);
         adapter.setOnItemClickListener(this);
@@ -179,28 +173,6 @@ public class ReleaseActivity extends BaseActivity
             File newFile = mCompressor.compressToFile(oldFile);
             mFiles.add(newFile);
 
-            /* 这里假设只对 200k 以上 并且 宽高小的像素 > 400的图片进行裁剪*/
-//            reqHeight = selImageList.get(i).height;
-//            reqWidth = selImageList.get(i).width;
-//            int minSize = Math.min(reqHeight,reqWidth);
-//            int size = (int) (selImageList.get(i).size/1024);//当前图片的大小
-//            Log.e(TAG,"图片size:"+size+"KB");
-//            while (minSize > 500 && size >= 200){
-//                reqWidth /= 2;
-//                reqHeight /= 2;
-//                minSize = Math.min(reqHeight,reqWidth);
-//            }
-//
-//            if (reqWidth == 0 || reqHeight == 0){ //拍照返回的宽高为0，这里避免异常
-//                reqWidth = 480;
-//                reqHeight = 640;
-//            }
-//            Log.e(TAG,"第"+i+"个图片压缩后宽："+reqWidth);
-//            Log.e(TAG,"第"+i+"个图片压缩后高："+reqHeight);
-//            // 对图片压缩尺寸为原来的八分之一
-//            Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(filePath,reqWidth,reqHeight);
-//            Log.e(TAG,"第"+i+"个图片大小:"+bitmap.getByteCount()/1024+"kb");
-//            saveBitmapFile(bitmap,filePath);
         }
         uploadPic();  // 图片压缩完毕开始上传图片
     }
@@ -286,31 +258,28 @@ public class ReleaseActivity extends BaseActivity
             case IMAGE_ITEM_ADD:
                 new MaterialDialog.Builder(this)
                         .items(R.array.release)
-                        .itemsCallback(new ListCallback() {
-                            @Override
-                            public void onSelection(MaterialDialog dialog, View itemView, int position, CharSequence text) {
-                                if (text.equals("相片")){
-                                    //打开选择,本次允许选择的数量
-                                    ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
-                                    Intent intent1 = new Intent(ReleaseActivity.this, com.lzy.imagepicker.ui.ImageGridActivity.class);
-                                    startActivityForResult(intent1, REQUEST_CODE_SELECT);
-                                }else{
-                                    // 打开微视频
+                        .itemsCallback((dialog, itemView, position1, text) -> {
+                            if (text.equals("相片")){
+                                //打开选择,本次允许选择的数量
+                                ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
+                                Intent intent1 = new Intent(ReleaseActivity.this, com.lzy.imagepicker.ui.ImageGridActivity.class);
+                                startActivityForResult(intent1, REQUEST_CODE_SELECT);
+                            }else{
+                                // 打开微视频
 
-                                    // 存一个文件，以便于让后面发微视频知道发到哪里
-                                    getSharedPreferences("send.tmp",MODE_PRIVATE).edit().putString("infoType",mFrom)
-                                            .putString("content",mEditText.getText().toString().trim()).apply();
+                                // 存一个文件，以便于让后面发微视频知道发到哪里
+                                getSharedPreferences("send.tmp",MODE_PRIVATE).edit().putString("infoType",mFrom)
+                                        .putString("content",mEditText.getText().toString().trim()).apply();
 
 
-                                    ReleaseActivity.this.finish();
-                                }
+                                ReleaseActivity.this.finish();
                             }
                         }).show();
 
                 //打开选择,本次允许选择的数量
-//               ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
-//               Intent intent = new Intent(ReleaseActivity.this, com.lzy.imagepicker.ui.ImageGridActivity.class);
-//               startActivityForResult(intent, REQUEST_CODE_SELECT);
+               ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
+               Intent intent = new Intent(ReleaseActivity.this, com.lzy.imagepicker.ui.ImageGridActivity.class);
+               startActivityForResult(intent, REQUEST_CODE_SELECT);
                 break;
             default:
                 //打开预览
@@ -332,11 +301,11 @@ public class ReleaseActivity extends BaseActivity
                 ArrayList<ImageItem> images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
                 if (images != null){
                     selImageList.addAll(images);
-//                for (int i = 0; i < selImageList.size(); i++) {
-//                    mFiles.add(new File(selImageList.get(i).path));
-//                }
+                for (int i = 0; i < selImageList.size(); i++) {
+                    mFiles.add(new File(selImageList.get(i).path));
+                }
 
-                    //鲁班压缩
+                    //压缩
 //                compressWithLs(new File(selImageList.get(0).path));
                     adapter.setImages(selImageList);
                 }

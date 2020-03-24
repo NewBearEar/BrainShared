@@ -5,13 +5,14 @@ import android.os.Bundle;
 
 import com.example.a123.sharedbrain.AppService;
 import com.example.a123.sharedbrain.R;
+import com.example.a123.sharedbrain.activity.MapActivity;
 import com.example.a123.sharedbrain.activity.ReleaseActivity;
 import com.example.a123.sharedbrain.adapter.MyPagerAdapter;
 import com.example.a123.sharedbrain.config.AddConfig;
-import com.example.a123.sharedbrain.config.Consts;
 import com.example.a123.sharedbrain.utils.CircularAnimUtil;
-import com.example.a123.sharedbrain.utils.UIUtil;
 import com.example.a123.sharedbrain.view.TitleView;
+
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -52,7 +53,7 @@ public class HomeFragment extends FragmentBase {
     }
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home,container,false);
         bindView(view);
         return view;
@@ -86,7 +87,7 @@ public class HomeFragment extends FragmentBase {
                 Intent intent = new Intent(getActivity(), ReleaseActivity.class);
                 intent.putExtra("name", mName);
                 Log.e(TAG,mName);
-                CircularAnimUtil.startActivity((AppCompatActivity) getActivity(), intent, mFab,
+                CircularAnimUtil.startActivity(getActivity(), intent, mFab,
                         R.color.main_bg_color1);
             }
         });

@@ -1,5 +1,6 @@
 package com.example.a123.sharedbrain.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -20,7 +21,7 @@ import com.example.a123.sharedbrain.R;
 
 import android.support.v7.app.AppCompatActivity;
 
-public class MapActivity extends AppCompatActivity {
+public class MapActivity extends Activity {
     private MapView mMapView = null;
     private BaiduMap mBaiduMap;
     private LocationClient mLocationClient;

@@ -3,6 +3,7 @@ package com.example.a123.sharedbrain.utils;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -83,13 +84,13 @@ public class CircularAnimUtil {
      */
     @SuppressLint("NewApi")
     public static void startActivityForResult(
-            final AppCompatActivity thisActivity, final Intent intent, final Integer requestCode, final Bundle bundle,
+            final Activity thisActivity, final Intent intent, final Integer requestCode, final Bundle bundle,
             final View triggerView, int colorOrImageRes, final long durationMills) {
 
-        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.LOLLIPOP) {
-            thisActivity.startActivity(intent);
-            return;
-        }
+//        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.LOLLIPOP) {
+//            thisActivity.startActivity(intent);
+//            return;
+//        }
 
         int[] location = new int[2];
         triggerView.getLocationInWindow(location);
@@ -158,25 +159,21 @@ public class CircularAnimUtil {
     /*下面的方法全是重载，用简化上面方法的构建*/
 
     public static void startActivityForResult(
-            AppCompatActivity thisActivity, Intent intent, Integer requestCode, View triggerView, int colorOrImageRes) {
+            Activity thisActivity, Intent intent, Integer requestCode, View triggerView, int colorOrImageRes) {
         startActivityForResult(thisActivity, intent, requestCode, null, triggerView, colorOrImageRes, PERFECT_MILLS);
     }
 
     public static void startActivity(
-            AppCompatActivity thisActivity, Intent intent, View triggerView, int colorOrImageRes, long durationMills) {
+            Activity thisActivity, Intent intent, View triggerView, int colorOrImageRes, long durationMills) {
         startActivityForResult(thisActivity, intent, null, null, triggerView, colorOrImageRes, durationMills);
-    }
-    public static void startActivity(
-            FragmentActivity thisActivity, Intent intent, View triggerView, int colorOrImageRes, long durationMills) {
-        //startActivityForResult(thisActivity, intent, null, null, triggerView, colorOrImageRes, durationMills);
     }
 
     public static void startActivity(
-            AppCompatActivity thisActivity, Intent intent, View triggerView, int colorOrImageRes) {
+            Activity thisActivity, Intent intent, View triggerView, int colorOrImageRes) {
         startActivity(thisActivity, intent, triggerView, colorOrImageRes, PERFECT_MILLS);
     }
 
-    public static void startActivity(AppCompatActivity thisActivity, Class<?> targetClass, View triggerView, int colorOrImageRes) {
+    public static void startActivity(Activity thisActivity, Class<?> targetClass, View triggerView, int colorOrImageRes) {
         startActivity(thisActivity, new Intent(thisActivity, targetClass), triggerView, colorOrImageRes, PERFECT_MILLS);
     }
 
