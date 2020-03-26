@@ -53,8 +53,10 @@ dependencies {
     implementation 'com.jcodecraeer:xrecyclerview:1.2.7'
     // bottom tab
     implementation 'com.github.armcha:SpaceNavigationView:1.4.1'
-    //炫酷的dialog
+    // 自动轮播
     implementation 'com.nineoldandroids:library:2.4.0'
+
+    //炫酷的dialog
     implementation 'com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar'
     //优化发布/订阅事件
     implementation 'org.greenrobot:eventbus:3.1.1'
