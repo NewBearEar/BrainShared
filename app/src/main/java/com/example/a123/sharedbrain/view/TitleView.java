@@ -254,17 +254,17 @@ public class TitleView extends FrameLayout {
         mRightText.setTextSize(size);
     }
     /**
-     * 修正右侧按钮 使用文字图标是的错位
+     * 修正右侧按钮 使用文字图标时的错位
      * */
     public void setFixRightButtonPadingTop(){
-        mRightText.setPadding(mRightText.getPaddingLeft(), DisplayMetricsUtil.dip2px(10), mRightText.getPaddingRight(), mRightText.getPaddingBottom());
+        mRightText.setPadding(mRightText.getPaddingLeft(), DisplayMetricsUtil.dip2px(10,getContext()), mRightText.getPaddingRight(), mRightText.getPaddingBottom());
     }
 
     /**
      * 修正右侧按钮 使用文字图标是的错位
      * */
     public void setFixRightButtonPadingTop(int dp){
-        mRightText.setPadding(mRightText.getPaddingLeft(), DisplayMetricsUtil.dip2px(dp),mRightText.getPaddingRight(),mRightText.getPaddingBottom());
+        mRightText.setPadding(mRightText.getPaddingLeft(), DisplayMetricsUtil.dip2px(dp,getContext()),mRightText.getPaddingRight(),mRightText.getPaddingBottom());
     }
 
     /**

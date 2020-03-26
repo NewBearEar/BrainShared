@@ -1,8 +1,6 @@
 package com.example.a123.sharedbrain.activity;
 
-import com.afollestad.materialdialogs.MaterialDialog.ListCallback;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.example.a123.sharedbrain.App;
 import com.example.a123.sharedbrain.AppService;
 import com.example.a123.sharedbrain.DataModel.InfoType;
 import com.example.a123.sharedbrain.R;
@@ -22,7 +20,6 @@ import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.View.OnClickListener;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -53,23 +50,17 @@ public class ReleaseActivity extends BaseActivity
 
 
     private static final String TAG = "ReleaseActivity";
-    private TitleView mTitleBar;
     private String mFrom;
-    private WavyLineView mWavyLine;
     private EditText mEditText;
-    private int infoType;
 
     private List<File> mFiles;
     private List<String> mSmallUrls;
     private boolean isUploadPics;
-    private int reqWidth = 0;
-    private int reqHeight = 0;
-    private Point point;
     private CompressHelper mCompressor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_release);
+
 
         mCompressor = new CompressHelper.Builder(this)
                 .setMaxHeight(960)
@@ -79,16 +70,16 @@ public class ReleaseActivity extends BaseActivity
                 .setDestinationDirectoryPath(Environment.getExternalStoragePublicDirectory(
                         Environment.DIRECTORY_PICTURES).getAbsolutePath())
                 .build();
-
+        setContentView(R.layout.activity_release);
         updatePixel();
         bindView();
     }
     private void updatePixel() {
-        point = new Point();
+        Point point = new Point();
         getWindowManager().getDefaultDisplay().getSize(point);
-        Log.e(TAG,"宽:"+point.x+",高："+point.y);
-        reqWidth = point.x ;
-        reqHeight = point.y ;
+        Log.e(TAG,"宽:"+ point.x+",高："+ point.y);
+        int reqWidth = point.x;
+        int reqHeight = point.y;
     }
 
     @Override
@@ -107,18 +98,15 @@ public class ReleaseActivity extends BaseActivity
     private void bindView() {
         mFiles = new ArrayList<>();
         mSmallUrls = new ArrayList<>();
-
-        mFrom = getIntent().getStringExtra("name");
-        mTitleBar = (TitleView) findViewById(R.id.release_title);
+        TitleView mTitleBar = (TitleView) findViewById(R.id.release_title);
         mTitleBar.setLeftButtonAsFinish(this);
+        mFrom = getIntent().getStringExtra("name");
         Log.e(TAG, mFrom);
-
-
 
         switch (mFrom) {
             case AddConfig.ORDER:
                 mTitleBar.setTitle("发布订单");
-                infoType = InfoType.ORDER;
+                int infoType = InfoType.ORDER;
                 break;
             case AddConfig.BLOG:
                 mTitleBar.setTitle("发布博客");
@@ -134,19 +122,19 @@ public class ReleaseActivity extends BaseActivity
         mTitleBar.setRightButtonTextSize(25);
         mTitleBar.setFixRightButtonPadingTop();
         mTitleBar.setRightButtonOnClickListener(v -> tryDecodeSmallImg2());
-
+//
         // 波浪线设置
-        mWavyLine = findViewById(R.id.release_wavyLine);
+        WavyLineView mWavyLine = findViewById(R.id.release_wavyLine);
         int initStrokeWidth = 1;
         int initAmplitude = 5;
         float initPeriod = (float) (2 * Math.PI / 60);
         mWavyLine.setPeriod(initPeriod);
         mWavyLine.setAmplitude(initAmplitude);
-        mWavyLine.setStrokeWidth(ScreenUtil.dp2px(initStrokeWidth));
+        mWavyLine.setStrokeWidth(ScreenUtil.dp2px(this,initStrokeWidth));
 
-
+//
         mEditText = (EditText) findViewById(R.id.release_edit);
-
+//
         RecyclerView recyclerView = findViewById(R.id.release_recycler);
         selImageList = new ArrayList<>();
         adapter = new ImagePickerAdapter(this, selImageList, maxImgCount);
@@ -298,6 +286,7 @@ public class ReleaseActivity extends BaseActivity
         if (resultCode == ImagePicker.RESULT_CODE_ITEMS) {
             //添加图片返回
             if (data != null && requestCode == REQUEST_CODE_SELECT) {
+                @SuppressWarnings("unchecked")
                 ArrayList<ImageItem> images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
                 if (images != null){
                     selImageList.addAll(images);

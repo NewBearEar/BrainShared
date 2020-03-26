@@ -35,10 +35,7 @@ public class ScreenUtil {
         return (int) ((dp * displayMetrics.density) + 0.5);
     }
 
-    public static int dp2px(int dp) {
-        DisplayMetrics displayMetrics = Objects.requireNonNull(App.getAppContext()).getResources().getDisplayMetrics();
-        return (int) ((dp * displayMetrics.density) + 0.5);
-    }
+
 
     public static int dp2px(Context context, double dp) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();

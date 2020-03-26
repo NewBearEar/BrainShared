@@ -32,6 +32,9 @@
     <string name="l4_p">\ue601</string><!--设置 查找班级-->
     <string name="mine_setting">\ue617</string><!--设置 设置-->
     <string name="mine_about">\ue640</string><!--关于我们-->
+    <string name="Saysth">说点什么吧...</string>
+    <string name="todo">TODO</string>
+
 
 
 </resources>

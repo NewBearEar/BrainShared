@@ -2,19 +2,33 @@ package com.example.a123.sharedbrain.utils;
 import com.example.a123.sharedbrain.App;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
+import android.view.Window;
+import android.view.WindowManager;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-public class DisplayMetricsUtil {
-
+public class DisplayMetricsUtil extends Activity {
+    public static Resources resourcesInstance;
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
      */
-    public static int dip2px(float dpValue) {
-        final float scale = Objects.requireNonNull(App.getAppContext()).getResources().getDisplayMetrics().density;
+    public static Resources GetResources(Context context) {
+    // TODO Auto-generated method stub
+    Resources mResources = null;
+    mResources = context.getResources();
+    return mResources;
+    }
+
+    public static int dip2px(float dpValue,Context context) {
+
+        resourcesInstance=GetResources(context);
+        final float scale =resourcesInstance.getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
 

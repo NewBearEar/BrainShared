@@ -10,5 +10,5 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/selector_image_add" />
+        app:srcCompat="@drawable/selector_image" />
 </LinearLayout>

@@ -100,7 +100,7 @@
             android:process=":remote" />
 
         <activity
-            android:name=".activity.ReleaseActivity"
+            android:name="com.example.a123.sharedbrain.activity.ReleaseActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat" />

@@ -148,7 +148,7 @@ public class LinearLayoutListItemView extends LinearLayout implements View.OnCli
     private boolean nomalClickFlag = false;
 
     public LinearLayoutListItemView(Context context) {
-        super(context);
+        this(context,null);
         mContext = context;
 
     }
